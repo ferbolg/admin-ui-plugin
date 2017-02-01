@@ -2,7 +2,7 @@
 <head>
     <title>$i18n.getText("xproduct.admin.label")</title>
     <meta name="decorator" content="atl.admin" />
-    $webResourceManager.requireResource("com.atlassian.plugins.tutorial.xproduct-admin-ui-plugin:resources")
+    $webResourceManager.requireResourcesForContext("xproduct-admin-ui-plugin")
     <meta name="application-base-url" content="$applicationProperties.getBaseUrl()">
 </head>
 <body>
@@ -16,8 +16,7 @@
         <input type="text" id="time" name="time" class="text">
     </div>
     <div class="field-group">
-##        <input type="submit" value="$i18n.getText("xproduct.admin.save.label")" class="button">
-    <input type="submit" class="button">
+        <input type="submit" value="$i18n.getText("xproduct.admin.save.label")" class="button">
     </div>
 </form>
 </body>

@@ -2,24 +2,24 @@
     <plugin-info>
         <description>${project.description}</description>
         <version>${project.version}</version>
-        <vendor name="${project.organization.name}" url="${project.organization.url}" />
+        <vendor name="${project.organization.name}" url="${project.organization.url}"/>
         <param name="plugin-icon">images/pluginIcon.png</param>
         <param name="plugin-logo">images/pluginLogo.png</param>
     </plugin-info>
 
     <!-- add our i18n resource -->
     <resource type="i18n" name="i18n" location="xproduct-admin-ui-plugin"/>
-    
+
     <!-- add our web resources -->
     <web-resource key="xproduct-admin-ui-plugin-resources" name="xproduct-admin-ui-plugin Web Resources">
-        <dependency>com.atlassian.auiplugin:ajs</dependency>
-        
+        <!--<dependency>com.atlassian.auiplugin:ajs</dependency>-->
+        <dependency>jira.webresources:jira-global</dependency>
         <resource type="download" name="xproduct-admin-ui-plugin.css" location="/css/xproduct-admin-ui-plugin.css"/>
         <resource type="download" name="xproduct-admin-ui-plugin.js" location="/js/xproduct-admin-ui-plugin.js"/>
         <resource type="download" name="images/" location="/images"/>
-
         <context>xproduct-admin-ui-plugin</context>
     </web-resource>
+
 
     <servlet key="admin-servlet" class="com.atlassian.plugins.tutorial.xproductadminui.AdminServlet">
         <url-pattern>/xproduct/admin</url-pattern>
@@ -28,5 +28,12 @@
     <rest key="rest" path="/xproduct-admin" version="1.0">
         <description>Provides REST resources for the admin UI.</description>
     </rest>
-    
+
+    <web-item key="jira-menu-item" name="XProduct Admin" section="system.admin/globalsettings" weight="10"
+              application="jira">
+        <description>Link to xproduct-admin page.</description>
+        <label key="xproduct.admin.label"/>
+        <link linkId="xproduct-admin-link">/plugins/servlet/xproduct/admin</link>
+    </web-item>
+
 </atlassian-plugin>
