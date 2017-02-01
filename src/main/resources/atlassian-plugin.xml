@@ -20,5 +20,13 @@
 
         <context>xproduct-admin-ui-plugin</context>
     </web-resource>
+
+    <servlet key="admin-servlet" class="com.atlassian.plugins.tutorial.xproductadminui.AdminServlet">
+        <url-pattern>/xproduct/admin</url-pattern>
+    </servlet>
+
+    <rest key="rest" path="/xproduct-admin" version="1.0">
+        <description>Provides REST resources for the admin UI.</description>
+    </rest>
     
 </atlassian-plugin>
